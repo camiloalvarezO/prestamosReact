@@ -1,3 +1,10 @@
+#Configuraciones mías antes de empezar un proyecto
+
+en cdnjs buscar squeleton que es una hoja de estilos que sirve bastante
+
+tambien buscar normalize, lo requiere skeleton, es para que los elementos se vean más consistentes en diferentes navegadores
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
