@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from "react";
 import Header from "./componentes/Header.js";
 import Formulario from "./componentes/Formulario.js";
+import Mensaje from "./componentes/Mensaje.js";
 
 function App() {
   // usestate retorna 2 valores,el primero es una variable que va a contener el valor
@@ -10,6 +11,10 @@ function App() {
   // realmente sirve sin poner Fragment, lo coloco por la ciencia
 
   const [plazo,guardarPlazo] = useState('')
+
+  const [total,guardarTotal] = useState(0);
+
+
   return (
       <Fragment> 
       <Header/>
@@ -19,7 +24,12 @@ function App() {
         guardarCantidad={guardarCantidad}
         plazo={plazo}
         guardarPlazo={guardarPlazo}
+        total={total}
+        guardarTotal={guardarTotal}
       />
+        <div className="mensajes">
+          <Mensaje/>
+        </div>
       </div>
       </Fragment>
   );

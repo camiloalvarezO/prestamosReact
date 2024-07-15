@@ -1,6 +1,6 @@
 import React,{useState, Fragment} from "react";
 import { calcularCotizacion } from "../helpers";
-const Formulario = ({cantidad,guardarCantidad,plazo,guardarPlazo}) => {
+const Formulario = (props) => {
     
     // hacemos un state para la cantidad del prestamo
     
@@ -9,13 +9,16 @@ const Formulario = ({cantidad,guardarCantidad,plazo,guardarPlazo}) => {
     //     console.log(e.target.value);
     // }
 
-    const leerCantidad= e =>{
-        guardarCantidad(parseInt(e.target.value))
-    }
+    // const leerCantidad= e =>{
+    //     guardarCantidad(parseInt(e.target.value))
+    // }
     // aqui comienza el codigo sin jodienda
+
+    let {cantidad,guardarCantidad,plazo,guardarPlazo,total,guardarTotal} = props
+
     const [error,guardarError]= useState(false)
     // validamos que los campos no sean vacíos
-    function calcularError(e){
+    function calcularTotal(e){
         e.preventDefault();
         if (cantidad === 0 || plazo === '' ) {
             guardarError(true)
@@ -28,14 +31,16 @@ const Formulario = ({cantidad,guardarCantidad,plazo,guardarPlazo}) => {
         //eliminar mensaje de error en caso de que seleccionó bien
         guardarError(false)
         console.log('legal');
-        calcularCotizacion(cantidad,plazo)
+        total = calcularCotizacion(cantidad,plazo)
+        console.log(total);
+        guardarTotal(total);
     }
 
 
     return ( 
         <Fragment>
         <form
-            onSubmit={calcularError}
+            onSubmit={calcularTotal}
             >
            
           <div className="row">
