@@ -14,7 +14,7 @@ const Formulario = (props) => {
     // }
     // aqui comienza el codigo sin jodienda
 
-    let {cantidad,guardarCantidad,plazo,guardarPlazo,total,guardarTotal} = props
+    let {cantidad,guardarCantidad,plazo,guardarPlazo,total,guardarTotal,guardarCargando} = props
 
     const [error,guardarError]= useState(false)
     // validamos que los campos no sean vacíos
@@ -31,9 +31,13 @@ const Formulario = (props) => {
         //eliminar mensaje de error en caso de que seleccionó bien
         guardarError(false)
         console.log('legal');
+        guardarCargando(true)
+        setTimeout(() => {
         total = calcularCotizacion(cantidad,plazo)
         console.log(total);
         guardarTotal(total);
+        guardarCargando(false)
+        }, 3000);
     }
 
 
